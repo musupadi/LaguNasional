@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LAGU NASIONAL INDONESIA</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_Beranda">Beranda</string>
+    <string name="title_Pencarian">Pencarian</string>
+    <string name="title_DaftarPutar">Daftar Putar</string>
+    <string name="title_Tentang">Tentang</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deskripsi">Nama saya Resma Panjaitan, mahasiswi Semester 8 di Universitas Indraprasta PGRI. Aplikasi ini dibuat untuk memenuhi tugas akhir. </string>
+</resources>

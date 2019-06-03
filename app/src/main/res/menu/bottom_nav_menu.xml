@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_Beranda"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_Beranda"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/nav_item_colors"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <item
+        android:id="@+id/navigation_Pencarian"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/title_Pencarian"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/nav_item_colors"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <item
+        android:id="@+id/navigation_DaftarPutar"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:title="@string/title_DaftarPutar"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/nav_item_colors"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <item
+        android:id="@+id/navigation_Tentang"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="@string/title_Tentang"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/nav_item_colors"
+        app:menu="@menu/bottom_nav_menu"/>
+</menu>
