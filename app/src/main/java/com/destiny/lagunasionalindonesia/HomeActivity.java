@@ -10,10 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.destiny.lagunasionalindonesia.Fragment.BerandaFragment;
 import com.destiny.lagunasionalindonesia.Fragment.DaftarPutarFragment;
 import com.destiny.lagunasionalindonesia.Fragment.ListWajibFragment;
+import com.destiny.lagunasionalindonesia.Fragment.PlayFragment;
 import com.destiny.lagunasionalindonesia.Fragment.SearchFragment;
 import com.destiny.lagunasionalindonesia.Fragment.TentangFragment;
 
@@ -54,11 +56,29 @@ public class HomeActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Fragment fragment = new BerandaFragment();
         Intent data = getIntent();
+        //Constant
         String Wajib = data.getStringExtra("WAJIB");
+        String LaguWajib = data.getStringExtra("LaguWajib");
+        //Constant
+        String Judul = data.getStringExtra("Judul");
+        String Pencipta = data.getStringExtra("Pencipta");
+        String Asal = data.getStringExtra ("Asal");
+        String Lirik = data.getStringExtra("Lirik");
+        String Lagu = data.getStringExtra("Lagu");
         if (Wajib !=null){
             Bundle bundle = new Bundle();
             bundle.putString("LIST",Wajib);
             fragment = new ListWajibFragment();
+            fragment.setArguments(bundle);
+        }else if(LaguWajib !=null){
+            Bundle bundle = new Bundle();
+            bundle.putString("MUSIC",LaguWajib);
+            bundle.putString("Judul",Judul);
+            bundle.putString("Pencipta",Pencipta);
+            bundle.putString("Asal",Asal);
+            bundle.putString("Lirik",Lirik);
+            bundle.putString("Lagu",Lagu);
+            fragment = new PlayFragment();
             fragment.setArguments(bundle);
         }
         ChangeFragment(fragment);

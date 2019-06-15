@@ -19,7 +19,7 @@
             android:layout_weight="1">
 
             <AutoCompleteTextView
-                android:id="@+id/etNIP"
+                android:id="@+id/etSearchLagu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

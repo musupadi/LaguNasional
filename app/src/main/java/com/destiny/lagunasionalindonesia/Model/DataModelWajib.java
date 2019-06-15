@@ -64,8 +64,8 @@ public class DataModelWajib {
             models = new Models();
             models.setJudul(aData[0]);
             models.setPencipta(aData[1]);
-            models.setAsal(aData[2]);
-            models.setLirik(aData[3]);
+            models.setLirik(aData[2]);
+            models.setAsal(aData[3]);
             models.setLagu(aData[4]);
             list.add(models);
         }

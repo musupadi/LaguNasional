@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.destiny.lagunasionalindonesia.HomeActivity;
 import com.destiny.lagunasionalindonesia.Model.Models;
 import com.destiny.lagunasionalindonesia.R;
 
@@ -48,12 +49,19 @@ public class AdapterLaguWajib extends RecyclerView.Adapter<AdapterLaguWajib.Card
         final Models p = getListLaguWajib().get(i);
         cardViewViewHolder.tvJudul.setText(p.getJudul());
         cardViewViewHolder.tvPenyanyi.setText(p.getPencipta());
-        cardViewViewHolder.list.setOnClickListener(new View.OnClickListener() {
+        cardViewViewHolder.list.setOnClickListener(new CustomOnItemClickListener(i, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
-            public void onClick(View v) {
-
+            public void onItemClicked(View view, int position) {
+                Intent goInput = new Intent(context, HomeActivity.class);
+                goInput.putExtra("LaguWajib","LAGUWAJIB");
+                goInput.putExtra("Judul",p.getJudul());
+                goInput.putExtra("Pencipta",p.getPencipta());
+                goInput.putExtra( "Asal",p.getAsal());
+                goInput.putExtra("Lirik",p.getLirik());
+                goInput.putExtra("Lagu",p.getLagu());
+                context.startActivities(new Intent[]{goInput});
             }
-        });
+        }));
     }
 
     @Override
