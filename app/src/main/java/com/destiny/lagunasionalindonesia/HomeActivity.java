@@ -1,8 +1,11 @@
 package com.destiny.lagunasionalindonesia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 
 import com.destiny.lagunasionalindonesia.Fragment.BerandaFragment;
 import com.destiny.lagunasionalindonesia.Fragment.DaftarPutarFragment;
+import com.destiny.lagunasionalindonesia.Fragment.ListWajibFragment;
 import com.destiny.lagunasionalindonesia.Fragment.SearchFragment;
 import com.destiny.lagunasionalindonesia.Fragment.TentangFragment;
 
@@ -48,6 +52,24 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Fragment fragment = new BerandaFragment();
+        Intent data = getIntent();
+        String Wajib = data.getStringExtra("WAJIB");
+        if (Wajib !=null){
+            Bundle bundle = new Bundle();
+            bundle.putString("LIST",Wajib);
+            fragment = new ListWajibFragment();
+            fragment.setArguments(bundle);
+        }
+        ChangeFragment(fragment);
+    }
+    private void ChangeFragment(Fragment fragment){
+        if(fragment != null){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.Container,fragment);
+            ft.commit();
+        }
     }
 
 }

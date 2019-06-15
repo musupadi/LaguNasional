@@ -37,7 +37,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/iconlaguwajib" />
+                    android:src="@drawable/iconlaguwajib"
+                    android:id="@+id/Wajib"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -71,7 +72,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/iconlagudaerah" />
+                    android:src="@drawable/iconlagudaerah"
+                    android:id="@+id/Daerah"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
