@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2.4"
-            android:src="@drawable/fixkembali"/>
+            android:src="@drawable/ikonkembali"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="2.4"
-            android:src="@drawable/iconfinder_ui_ux_favorite_like_4680161" />
+            android:src="@drawable/ikonfav" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

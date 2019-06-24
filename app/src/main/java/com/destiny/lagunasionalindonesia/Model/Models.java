@@ -3,6 +3,18 @@ package com.destiny.lagunasionalindonesia.Model;
 public class Models {
     String judul,pencipta,asal,lirik,lagu;
 
+    public Models(){
+
+    }
+
+    public Models(String judul,String pencipta,String asal,String lirik,String lagu){
+        this.judul=judul;
+        this.pencipta=pencipta;
+        this.asal=asal;
+        this.lirik=lirik;
+        this.lagu=lagu;
+    }
+
     public String getJudul() {
         return judul;
     }

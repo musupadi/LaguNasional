@@ -37,8 +37,6 @@
                     android:text="Penyanyi Lagu"
                     android:textSize="12sp" />
             </LinearLayout>
-
-
         </HorizontalScrollView>
     </LinearLayout>
 

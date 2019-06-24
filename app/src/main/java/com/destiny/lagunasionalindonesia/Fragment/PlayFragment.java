@@ -2,6 +2,8 @@ package com.destiny.lagunasionalindonesia.Fragment;
 
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.destiny.lagunasionalindonesia.Model.DB_Helper;
+import com.destiny.lagunasionalindonesia.Model.Models;
 import com.destiny.lagunasionalindonesia.R;
 
 /**
@@ -21,6 +25,8 @@ import com.destiny.lagunasionalindonesia.R;
 public class PlayFragment extends Fragment {
     ImageView Kembali,DaftarPutar,KembaliLagu,Putar,SelanjutnyaLagu;
     TextView lirik,lagu,pencipta,asal,judul;
+    DB_Helper dbHelper;
+
     public PlayFragment() {
         // Required empty public constructor
     }
@@ -44,6 +50,9 @@ public class PlayFragment extends Fragment {
         final String Lirik = this.getArguments().getString("Lirik").toString();
         final String Lagu = this.getArguments().getString("Lagu").toString();
         //Done
+        dbHelper = new DB_Helper(getActivity());
+        //Cursor cursor = dbHelper.checkPahlawan(p.getNama());
+        DaftarPutar=(ImageView)view.findViewById(R.id.ivDaftarPutar);
         lirik=(TextView)view.findViewById(R.id.tvLirik);
         pencipta=(TextView)view.findViewById(R.id.tvPencipta);
         judul=(TextView)view.findViewById(R.id.tvJudul);
@@ -51,6 +60,18 @@ public class PlayFragment extends Fragment {
         if (MUSIC.equals("LAGUWAJIB")){
             PlayMusikWajib(Judul,Pencipta,Asal,Lirik,Lagu);
         }
+        DaftarPutar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity()," Ditambahkan Ke Daftar Putar",Toast.LENGTH_SHORT).show();
+                Models model = new Models(Judul,
+                        Pencipta,
+                        Asal,
+                        Lirik,
+                        Lagu);
+                dbHelper.FavoriteLagu(model);
+            }
+        });
     }
     private void PlayMusikWajib(String Judul,String Pencipta,String Asal,String Lirik,String Lagu){
         lirik.setText(Lirik);
