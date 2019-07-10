@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.destiny.lagunasionalindonesia.R;
 
@@ -15,7 +17,7 @@ import com.destiny.lagunasionalindonesia.R;
  * A simple {@link Fragment} subclass.
  */
 public class TentangFragment extends Fragment {
-
+    TextView infoResma;
 
     public TentangFragment() {
         // Required empty public constructor
@@ -32,5 +34,20 @@ public class TentangFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        infoResma = (TextView)view.findViewById(R.id.tvInfoResma);
+
+        infoResma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"Tekan Untuk Mendengarkan Info Saya",Toast.LENGTH_SHORT).show();
+            }
+        });
+        infoResma.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                return true;
+            }
+        });
     }
 }

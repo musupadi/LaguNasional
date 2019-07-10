@@ -1,6 +1,8 @@
 package com.destiny.lagunasionalindonesia.Model;
 
 
+import com.destiny.lagunasionalindonesia.R;
+
 import java.util.ArrayList;
 
 public class DataModelWajib {
@@ -36,7 +38,7 @@ public class DataModelWajib {
                             "Merdeka! Merdeka!\n" +
                             "Tanahku negriku yang kucinta",
                     "",
-                    "1"
+                    String.valueOf(R.raw.tentangresma)
             },
             {"Tanah Airku",
                     "Ibu Soed",
@@ -54,7 +56,7 @@ public class DataModelWajib {
                             "Tanahku tak kulupakan\n" +
                             "Engkau kubanggakan",
                     "",
-                    "2"
+                    String.valueOf(R.raw.tentangresma)
             },
     };
     public static ArrayList<Models> getListData(){

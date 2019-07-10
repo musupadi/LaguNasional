@@ -74,8 +74,14 @@ public class DB_Helper extends SQLiteOpenHelper {
     }
     public void deleteLaguRecord(String nama, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM "+TABLE_NAME+" WHERE nama='"+nama+"'");
+        db.execSQL("DELETE FROM "+TABLE_NAME+" WHERE judul='"+nama+"'");
         Toast.makeText(context, "Deleted successfully.", Toast.LENGTH_SHORT).show();
 
+    }
+    public Cursor checkLagu(String nama){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query ="SELECT * FROM "+TABLE_NAME+" WHERE judul = '"+nama+"'";
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
     }
 }

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.destiny.lagunasionalindonesia.HomeActivity;
 import com.destiny.lagunasionalindonesia.R;
 
 import java.util.List;
@@ -88,7 +89,14 @@ public class ModelsAdapter extends RecyclerView.Adapter<ModelsAdapter.ViewHolder
             holder.list.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent goInput = new Intent(mContext, HomeActivity.class);
+                    goInput.putExtra("LaguWajib","LAGUWAJIB");
+                    goInput.putExtra("Judul",models.getJudul());
+                    goInput.putExtra("Pencipta",models.getPencipta());
+                    goInput.putExtra( "Asal",models.getAsal());
+                    goInput.putExtra("Lirik",models.getLirik());
+                    goInput.putExtra("Lagu",models.getLagu());
+                    mContext.startActivities(new Intent[]{goInput});
                 }
             });
         }

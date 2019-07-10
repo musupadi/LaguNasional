@@ -1,9 +1,14 @@
 package com.destiny.lagunasionalindonesia.Fragment;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,10 +16,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.destiny.lagunasionalindonesia.HomeActivity;
+import com.destiny.lagunasionalindonesia.MainActivity;
 import com.destiny.lagunasionalindonesia.Model.DB_Helper;
 import com.destiny.lagunasionalindonesia.Model.Models;
 import com.destiny.lagunasionalindonesia.R;
@@ -25,7 +33,10 @@ import com.destiny.lagunasionalindonesia.R;
 public class PlayFragment extends Fragment {
     ImageView Kembali,DaftarPutar,KembaliLagu,Putar,SelanjutnyaLagu;
     TextView lirik,lagu,pencipta,asal,judul;
+    Button Update,Delete;
     DB_Helper dbHelper;
+    Dialog myDialog;
+    boolean onClicked = true;
 
     public PlayFragment() {
         // Required empty public constructor
@@ -49,6 +60,7 @@ public class PlayFragment extends Fragment {
         final String Asal = this.getArguments().getString("Asal").toString();
         final String Lirik = this.getArguments().getString("Lirik").toString();
         final String Lagu = this.getArguments().getString("Lagu").toString();
+        final MediaPlayer SuaraLagu = MediaPlayer.create(getActivity(),Integer.parseInt(Lagu));
         //Done
         dbHelper = new DB_Helper(getActivity());
         //Cursor cursor = dbHelper.checkPahlawan(p.getNama());
@@ -56,6 +68,8 @@ public class PlayFragment extends Fragment {
         lirik=(TextView)view.findViewById(R.id.tvLirik);
         pencipta=(TextView)view.findViewById(R.id.tvPencipta);
         judul=(TextView)view.findViewById(R.id.tvJudul);
+        Putar=(ImageView)view.findViewById(R.id.ivMusikPlay);
+        Kembali=(ImageView)view.findViewById(R.id.ivBack);
         //Toast.makeText(getActivity(),Lirik,Toast.LENGTH_SHORT).show();
         if (MUSIC.equals("LAGUWAJIB")){
             PlayMusikWajib(Judul,Pencipta,Asal,Lirik,Lagu);
@@ -63,13 +77,58 @@ public class PlayFragment extends Fragment {
         DaftarPutar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity()," Ditambahkan Ke Daftar Putar",Toast.LENGTH_SHORT).show();
-                Models model = new Models(Judul,
-                        Pencipta,
-                        Asal,
-                        Lirik,
-                        Lagu);
-                dbHelper.FavoriteLagu(model);
+                String IDJudul = null;
+                myDialog = new Dialog(getActivity());
+                myDialog.setContentView(R.layout.layout_dialog);
+                Delete = (Button)myDialog.findViewById(R.id.btnDelete);
+                Cursor cursors = dbHelper.checkLagu(Judul);
+                if (cursors.getCount()>0){
+                    while (cursors.moveToNext()){
+                        IDJudul = cursors.getString(0);
+                    }
+                }
+                if (IDJudul != null){
+                    myDialog.show();
+                }else{
+                    Toast.makeText(getActivity()," Ditambahkan Ke Daftar Putar",Toast.LENGTH_SHORT).show();
+                    Models model = new Models(Judul,
+                            Pencipta,
+                            Asal,
+                            Lirik,
+                            Lagu);
+                    dbHelper.FavoriteLagu(model);
+                }
+                Delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dbHelper.deleteLaguRecord(Judul,getActivity());
+                        myDialog.dismiss();
+                    }
+                });
+
+            }
+        });
+        Kembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        Putar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Drawable DrawableHapus = getResources().getDrawable(R.drawable.hapus);
+                Drawable DrawablePlay = getResources().getDrawable(R.drawable.play);
+                if (onClicked){
+                    Putar.setImageDrawable(DrawableHapus);
+                    SuaraLagu.start();
+                    onClicked = false;
+                }else{
+                    Putar.setImageDrawable(DrawablePlay);
+                    SuaraLagu.pause();
+                    onClicked = true;
+                }
             }
         });
     }
