@@ -81,6 +81,8 @@ public class PlayFragment extends Fragment {
                 myDialog = new Dialog(getActivity());
                 myDialog.setContentView(R.layout.layout_dialog);
                 Delete = (Button)myDialog.findViewById(R.id.btnDelete);
+                Drawable DrawableHapus = getResources().getDrawable(R.drawable.hapus);
+                Drawable DrawableFav = getResources().getDrawable(R.drawable.play);
                 Cursor cursors = dbHelper.checkLagu(Judul);
                 if (cursors.getCount()>0){
                     while (cursors.moveToNext()){
@@ -88,8 +90,10 @@ public class PlayFragment extends Fragment {
                     }
                 }
                 if (IDJudul != null){
+                    DaftarPutar.setImageDrawable(DrawableFav);
                     myDialog.show();
                 }else{
+                    DaftarPutar.setImageDrawable(DrawableHapus);
                     Toast.makeText(getActivity()," Ditambahkan Ke Daftar Putar",Toast.LENGTH_SHORT).show();
                     Models model = new Models(Judul,
                             Pencipta,
@@ -118,7 +122,7 @@ public class PlayFragment extends Fragment {
         Putar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Drawable DrawableHapus = getResources().getDrawable(R.drawable.hapus);
+                Drawable DrawableHapus = getResources().getDrawable(R.drawable.pause);
                 Drawable DrawablePlay = getResources().getDrawable(R.drawable.play);
                 if (onClicked){
                     Putar.setImageDrawable(DrawableHapus);
@@ -136,6 +140,5 @@ public class PlayFragment extends Fragment {
         lirik.setText(Lirik);
         pencipta.setText(Pencipta);
         judul.setText(Judul);
-
     }
 }

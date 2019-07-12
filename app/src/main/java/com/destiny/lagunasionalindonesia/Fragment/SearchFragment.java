@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.destiny.lagunasionalindonesia.Adapter.AdapterAutoLagu;
 import com.destiny.lagunasionalindonesia.Adapter.AdapterLaguWajib;
@@ -28,7 +29,7 @@ import java.util.List;
  */
 public class SearchFragment extends Fragment {
     Button Quiz;
-
+    TextView SCORE;
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -45,6 +46,16 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Quiz = (Button)view.findViewById(R.id.btnQuiz);
+        SCORE = (TextView)view.findViewById(R.id.tvScore);
+
+        final String Score = this.getArguments().getString("SCORE").toString();
+        int score = Integer.parseInt(Score);
+        if (score==0){
+            SCORE.setVisibility(View.GONE);
+        }else{
+            SCORE.setVisibility(View.VISIBLE);
+            SCORE.setText(Score);
+        }
         Quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

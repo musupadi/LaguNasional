@@ -1,6 +1,7 @@
 package com.destiny.lagunasionalindonesia.Fragment;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,7 +36,7 @@ public class TentangFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         infoResma = (TextView)view.findViewById(R.id.tvInfoResma);
-
+        final MediaPlayer SuaraLagu = MediaPlayer.create(getActivity(),R.raw.tentangresma);
         infoResma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,7 @@ public class TentangFragment extends Fragment {
         infoResma.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-
+                SuaraLagu.start();
                 return true;
             }
         });

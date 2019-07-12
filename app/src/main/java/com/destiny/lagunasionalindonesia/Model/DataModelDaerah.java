@@ -6,54 +6,59 @@ import java.util.ArrayList;
 
 public class DataModelDaerah {
     public static String[][] data = new String[][]{
-            {"Indonesia Raya",
-                    "W.R Supratman",
-                    "Indonesia tanah airku\n" +
-                            "Tanah tumpah darahku\n" +
-                            "Disanalah aku berdiri\n" +
-                            "Jadi pandu ibuku.\n" +
+            {"Ambo Logo",
+                    "Sulawesi Selatan",
+                    "Duabulu' samanna \n" +
+                            "mattettongeng...indo' logo\n" +
+                            "Duabulu' samanna \n" +
+                            "mattettongeng...indo' logo\n" +
                             "\n" +
-                            "Indonesia kebangsaanku\n" +
-                            "Bangsa dan Tanah Airku\n" +
-                            "Marilah kita berseru\n" +
-                            "Indonesia bersatu\n" +
+                            "Kegasisamanna \n" +
+                            "rionroiallarionroi\n" +
+                            "Palettu' sengereng\n" +
                             "\n" +
-                            "Hiduplah tanahku\n" +
-                            "Hiduplah negriku\n" +
-                            "Bangsaku Rakyatku semuanya\n" +
-                            "Bangunlah jiwanya\n" +
-                            "Bangunlah badannya\n" +
-                            "Untuk Indonesia Raya\n" +
+                            "Sengerengmusamanna \n" +
+                            "pada bulu'... ambo' logo\n" +
+                            "Sengerengmusamanna \n" +
+                            "pada bulu'... ambo' logo\n" +
                             "\n" +
-                            "Indonesia Raya\n" +
-                            "Merdeka Merdeka\n" +
-                            "Tanahku negriku yang kucinta\n" +
+                            "Adammusamanna \n" +
+                            "silappae... allasilappae\n" +
+                            "Ruttungemmanengngi\n" +
                             "\n" +
-                            "Indonesia Raya\n" +
-                            "Merdeka Merdeka\n" +
-                            "Hiduplah Indonesia Raya\n" +
+                            "Buluesamanna\n" +
+                            "Maruttuttona...indo' logo\n" +
+                            "Buluesamanna\n" +
+                            "Maruttuttona...indo' logo\n" +
                             "\n" +
-                            "Indonesia Raya\n" +
-                            "Merdeka! Merdeka!\n" +
-                            "Tanahku negriku yang kucinta",
+                            "Tanetesamanna\n" +
+                            "Leppatonaallaleppatona\n" +
+                            "Natarouddani\n" +
+                            "\n" +
+                            "Muddanikkisamanna\n" +
+                            "Appasekki... ambo' logo\n" +
+                            "Muddanikkisamanna\n" +
+                            "Appasekki... ambo' logo\n" +
+                            "\n" +
+                            "Lettugisamana\n" +
+                            "Telettugi... allaTelettugi\n" +
+                            "Ko mappasemmuki\n",
                     "",
                     String.valueOf(R.raw.tentangresma)
             },
-            {"Tanah Airku",
-                    "Ibu Soed",
-                    "Tanah airku tidak kulupakan\n" +
-                            "Kan terkenang selama hidupku\n" +
-                            "Biarpun saya pergi jauh\n" +
-                            "Tidak kan hilang dari kalbu\n" +
-                            "Tanah ku yang kucintai\n" +
-                            "Engkau kuhargai\n" +
+            {"Ambon Manise",
+                    "Maluku",
+                    "Waktu hujan sore sore\n" +
+                            "Kilat sambar pohonkenari\n" +
+                            "E jojarodengmongare\n" +
+                            "Mari dansa dan menari\n" +
                             "\n" +
-                            "Walaupun banyak negri kujalani\n" +
-                            "Yang masyhur permai dikata orang\n" +
-                            "Tetapi kampung dan rumahku\n" +
-                            "Di sanalah kurasa senang\n" +
-                            "Tanahku tak kulupakan\n" +
-                            "Engkau kubanggakan",
+                            "Pukultifa toto buang kata balimbing di kereta\n" +
+                            "Nona dansadengantuanjangansindirnama beta\n" +
+                            "\n" +
+                            "E menarisambilgoyangbadane\n" +
+                            "Menarilombopeganglensomanise\n" +
+                            "Rasa ramaijanganpulangdulue\n",
                     "",
                     String.valueOf(R.raw.tentangresma)
             },

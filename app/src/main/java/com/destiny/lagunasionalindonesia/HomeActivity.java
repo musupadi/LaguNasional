@@ -33,7 +33,10 @@ public class HomeActivity extends AppCompatActivity {
                     selectedFragment = new BerandaFragment();
                     break;
                 case R.id.navigation_Pencarian:
+                    Bundle bundle = new Bundle();
+                    bundle.putString("SCORE","0");
                     selectedFragment = new SearchFragment();
+                    selectedFragment.setArguments(bundle);
                     break;
                 case R.id.navigation_DaftarPutar:
                     selectedFragment = new DaftarPutarFragment();
@@ -59,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         //Constant
         String Wajib = data.getStringExtra("WAJIB");
         String LaguWajib = data.getStringExtra("LaguWajib");
+        String Score = data.getStringExtra("SCORE");
         //Constant
         String Judul = data.getStringExtra("Judul");
         String Pencipta = data.getStringExtra("Pencipta");
@@ -79,6 +83,11 @@ public class HomeActivity extends AppCompatActivity {
             bundle.putString("Lirik",Lirik);
             bundle.putString("Lagu",Lagu);
             fragment = new PlayFragment();
+            fragment.setArguments(bundle);
+        }else if(Score != null){
+            Bundle bundle = new Bundle();
+            bundle.putString("SCORE",Score);
+            fragment = new SearchFragment();
             fragment.setArguments(bundle);
         }
         ChangeFragment(fragment);
